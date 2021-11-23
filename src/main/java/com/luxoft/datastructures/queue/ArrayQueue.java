@@ -1,6 +1,7 @@
 package com.luxoft.datastructures.queue;
 
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class ArrayQueue implements Queue {
@@ -36,7 +37,7 @@ public class ArrayQueue implements Queue {
         size = this.queue.length - 1;
         Object[] queueAfterRemove = new Object[size];
         Object firstVal = queue[0];
-        for (int i = 0 ; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             queueAfterRemove[i] = queue[i + 1];
         }
 
@@ -48,7 +49,7 @@ public class ArrayQueue implements Queue {
 
     @Override
     public Object peek() {
-        if(queue.length==0){
+        if (queue.length == 0) {
             return null;
         }
         return queue[0];
@@ -61,10 +62,7 @@ public class ArrayQueue implements Queue {
 
     @Override
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-            }
-        return false;
+        return size == 0;
     }
 
     @Override
@@ -79,7 +77,7 @@ public class ArrayQueue implements Queue {
 
     @Override
     public void clear() {
-        for(int i=0;i < size;i++) {
+        for (int i = 0; i < size; i++) {
             queue[i] = null;
         }
         size = 0;

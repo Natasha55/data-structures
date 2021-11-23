@@ -13,12 +13,12 @@ public class ArrayQueueTest {
     @DisplayName("Enqueue adds value")
     public void enqueue() {
         ArrayQueue queue = new ArrayQueue();
-        queue.setQueue(new Object[]{});
+        queue.setQueue(new Object[]{"C"});
 
         queue.enqueue("A");
         queue.enqueue("B");
 
-        assertEquals(2, queue.size(), "Ochered must be 2");
+        assertEquals(2, queue.size());
     }
 
     @Test
