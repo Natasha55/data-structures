@@ -3,9 +3,6 @@ package com.luxoft.datastructures.list;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,7 +34,6 @@ public class ArrayListTest {
         assertEquals(5, list.size());
         for (int i = 0; i <= list.size() - 1; i++) {
             System.out.println(list.get(i));
-
         }
     }
 
@@ -51,7 +47,6 @@ public class ArrayListTest {
         for (int i = 0; i <= list.size() - 1; i++) {
             System.out.println(list.get(i));
         }
-
     }
 
     @DisplayName("Return list without value of last index")
@@ -67,6 +62,7 @@ public class ArrayListTest {
             System.out.println(list.get(i));
         }
     }
+
     @DisplayName("Return list without value of middle index")
     @Test
     public void removeMiddleIndex() {
@@ -102,7 +98,6 @@ public class ArrayListTest {
         list.setList(new Object[]{});
         Object result = list.isEmpty();
         assertEquals(true, result);
-
     }
 
     @DisplayName("Return false if empty")
@@ -123,8 +118,8 @@ public class ArrayListTest {
         assertEquals(expected, list.toString());
     }
 
-
 }
+
 
 
 

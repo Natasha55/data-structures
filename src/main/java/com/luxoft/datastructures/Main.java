@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        ArrayQueue arrayQueue = new ArrayQueue();
+        ArrayQueue <String> arrayQueue = new ArrayQueue<>();
 
         ArrayList arrayList = new ArrayList();
 

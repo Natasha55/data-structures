@@ -35,7 +35,6 @@ public class ArrayList implements List {
         if (size == list.length) {
             grow();
         }
-
         if (size - index >= 0) System.arraycopy(list, index, list, index + 1, size - index);
 
         list[index] = value;
@@ -73,7 +72,6 @@ public class ArrayList implements List {
 
     @Override
     public void clear() {
-
     }
 
     @Override

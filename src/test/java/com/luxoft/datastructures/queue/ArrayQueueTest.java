@@ -6,25 +6,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-
 public class ArrayQueueTest {
 
     @Test
     @DisplayName("Enqueue adds value")
     public void enqueue() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         queue.setQueue(new Object[]{"C"});
 
         queue.enqueue("A");
         queue.enqueue("B");
-
-        assertEquals(2, queue.size());
+        assertEquals(3, queue.size());
     }
 
     @Test
     @DisplayName("Dequeue returns first value of queue")
     public void dequeue() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B", "C"};
         queue.setQueue(testQueue);
 
@@ -39,7 +37,7 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("Peek returns the element at the front")
     public void peek() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B"};
         queue.setQueue(testQueue);
 
@@ -51,20 +49,20 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("Peek returns null if queue is empty")
     public void peekEmpty() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{};
         queue.setQueue(testQueue);
 
         Object actual = queue.peek();
 
-        assertNull(actual);
+        assertNull(actual, "peek() return element on empty queue");
 
     }
 
     @Test
     @DisplayName("Size returns size")
     public void size() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B", "C"};
         queue.setQueue(testQueue);
 
@@ -74,7 +72,7 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("Contains return true if value present in queue")
     public void containsTrue() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B", "C"};
         queue.setQueue(testQueue);
 
@@ -86,7 +84,7 @@ public class ArrayQueueTest {
     @Test()
     @DisplayName("Contains return false if value not present in queue")
     public void containsFalse() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{};
         queue.setQueue(testQueue);
 
@@ -98,7 +96,7 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("isEmpty returns true if queue is empty" )
     public void isEmptyTrue() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{};
         queue.setQueue(testQueue);
 
@@ -110,7 +108,7 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("isEmpty returns false if queue is not empty")
     public void isEmptyFalse() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B"};
         queue.setQueue(testQueue);
 
@@ -122,25 +120,22 @@ public class ArrayQueueTest {
     @Test
     @DisplayName("Clear return empty queue")
     public void clear() {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A"};
         queue.setQueue(testQueue);
 
         queue.clear();
 
         assertEquals(0, queue.size());
-
     }
 
     @Test
     @DisplayName("toString return ")
     public void toStringTest()  {
-        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue<Object> queue = new ArrayQueue<>();
         Object[] testQueue = new Object[]{"A", "B", "C"};
         queue.setQueue(testQueue);
         assertEquals("ArrayQueue{queue=[A, B, C], size=3}", queue.toString());
     }
-
-
 
 }

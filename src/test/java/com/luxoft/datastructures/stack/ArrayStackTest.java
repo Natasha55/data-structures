@@ -23,7 +23,6 @@ public class ArrayStackTest {
         assertTrue(stack.isEmpty());
     }
 
-
     @DisplayName("Push and peek value")
     @Test
     public void pushAndPeek() {

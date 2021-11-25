@@ -1,18 +1,18 @@
 package com.luxoft.datastructures.queue;
 
-public interface Queue {
+public interface Queue<Q> {
 
-    void enqueue(Object value);
+    void enqueue(Q value);
 
-    Object dequeue();
+    Q dequeue();
 
-    Object peek();
+    Q peek();
 
     int size();
 
     boolean isEmpty();
 
-    boolean contains(Object value);
+    boolean contains(Q value);
 
     void clear();
 

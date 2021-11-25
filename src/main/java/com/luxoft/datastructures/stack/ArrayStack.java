@@ -9,7 +9,6 @@ public class ArrayStack implements Stack {
         stack = new Object[10];
     }
 
-
     @Override
     public void push(Object value) {
         if (stack.length == size) {
@@ -28,14 +27,12 @@ public class ArrayStack implements Stack {
         }
         Object removedElement = stack[size - 1];
         System.arraycopy(stack, 0, stack, size, size - 1);
-//        stack[size-1];
         size--;
         return removedElement;
     }
 
     @Override
     public Object peek() {
-
         if (size == 0) {
             return null;
         }
@@ -67,4 +64,5 @@ public class ArrayStack implements Stack {
     public void clear() {
         size = 0;
     }
+
 }

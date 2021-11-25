@@ -1,19 +1,17 @@
 package com.luxoft.datastructures.queue;
 
-
-import java.lang.reflect.Method;
 import java.util.Arrays;
 
-public class ArrayQueue implements Queue {
+public class ArrayQueue<Q> implements Queue<Q> {
 
-    private Object[] queue;
+    private Q[] queue;
     private int size;
 
-    public Object[] getQueue() {
+    public Q[] getQueue() {
         return queue;
     }
 
-    public void setQueue(Object[] queue) {
+    public void setQueue(Q[] queue) {
         this.queue = queue;
         this.size = queue.length;
     }
@@ -22,33 +20,27 @@ public class ArrayQueue implements Queue {
     }
 
     @Override
-    public void enqueue(Object value) {
+    public void enqueue(Q value) {
         size = this.queue.length + 1;
         Object[] queueAfterAdd = new Object[size];
-        for (int i = 0; i < this.queue.length; i++) {
-            queueAfterAdd[i] = queue[i];
-        }
+        System.arraycopy(queue, 0, queueAfterAdd, 0, this.queue.length);
         queueAfterAdd[queueAfterAdd.length - 1] = value;
-        queue = queueAfterAdd;
+        queue = (Q[]) queueAfterAdd;
     }
 
     @Override
-    public Object dequeue() {
+    public Q dequeue() {
         size = this.queue.length - 1;
         Object[] queueAfterRemove = new Object[size];
-        Object firstVal = queue[0];
-        for (int i = 0; i < size; i++) {
-            queueAfterRemove[i] = queue[i + 1];
-        }
+        Q firstVal = queue[0];
+        System.arraycopy(queue, 1, queueAfterRemove, 0, size);
 
-        queue = queueAfterRemove;
-//        Arrays.stream(queue).forEach(System.out::println);
+        queue = (Q[]) queueAfterRemove;
         return firstVal;
     }
 
-
     @Override
-    public Object peek() {
+    public Q peek() {
         if (queue.length == 0) {
             return null;
         }
@@ -66,9 +58,9 @@ public class ArrayQueue implements Queue {
     }
 
     @Override
-    public boolean contains(Object value) {
-        for (int i = 0; i < this.queue.length; i++) {
-            if (queue[i] == value) {
+    public boolean contains(Q value) {
+        for (Q o : this.queue) {
+            if (o == value) {
                 return true;
             }
         }
@@ -83,7 +75,6 @@ public class ArrayQueue implements Queue {
         size = 0;
     }
 
-
     @Override
     public String toString() {
         return "ArrayQueue{" +
@@ -91,4 +82,5 @@ public class ArrayQueue implements Queue {
                 ", size=" + size +
                 '}';
     }
+
 }
