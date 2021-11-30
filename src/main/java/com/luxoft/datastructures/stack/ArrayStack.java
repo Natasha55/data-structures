@@ -1,38 +1,40 @@
 package com.luxoft.datastructures.stack;
 
-public class ArrayStack implements Stack {
+import java.util.Arrays;
+
+public class ArrayStack<S> implements Stack<S> {
 
     private int size;
-    private Object[] stack;
+    private S[] stack;
 
     public ArrayStack() {
-        stack = new Object[10];
+        stack = (S[]) new Object[10];
     }
 
     @Override
-    public void push(Object value) {
+    public void push(S value) {
         if (stack.length == size) {
             Object[] newArray = new Object[stack.length * 2];
             System.arraycopy(stack, 0, newArray, 0, stack.length);
-            stack = newArray;
+            stack = (S[]) newArray;
         }
         stack[size] = value;
         size++;
     }
 
     @Override
-    public Object pop() {
+    public S pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty!");
         }
-        Object removedElement = stack[size - 1];
+        S removedElement = stack[size - 1];
         System.arraycopy(stack, 0, stack, size, size - 1);
         size--;
         return removedElement;
     }
 
     @Override
-    public Object peek() {
+    public S peek() {
         if (size == 0) {
             return null;
         }
@@ -40,9 +42,9 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public boolean contains(Object value) {
+    public boolean contains(S value) {
         for (int i = 0; i < size; i++) {
-            Object valueInStack = stack[i];
+            S valueInStack = stack[i];
             if (value.equals(valueInStack)) {
                 return true;
             }

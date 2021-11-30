@@ -1,14 +1,14 @@
 package com.luxoft.datastructures.stack;
 
-public interface Stack {
+public interface Stack <S> {
 
-    void push(Object value);
+    void push(S value);
 
-    Object pop();
+    S pop();
 
-    Object peek();
+    S peek();
 
-    boolean contains(Object value);
+    boolean contains(S value);
 
     int size();
 

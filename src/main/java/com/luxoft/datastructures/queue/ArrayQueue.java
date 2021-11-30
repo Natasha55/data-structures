@@ -60,7 +60,7 @@ public class ArrayQueue<Q> implements Queue<Q> {
     @Override
     public boolean contains(Q value) {
         for (Q o : this.queue) {
-            if (o == value) {
+            if (o.equals(value)) {
                 return true;
             }
         }

@@ -10,7 +10,7 @@ public class ArrayStackTest {
     @DisplayName("Push and pop work correctly and change size")
     @Test
     public void pushAndPop() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
         stack.push("B");
         stack.push("C");
@@ -26,7 +26,7 @@ public class ArrayStackTest {
     @DisplayName("Push and peek value")
     @Test
     public void pushAndPeek() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
         stack.push("B");
 
@@ -39,7 +39,7 @@ public class ArrayStackTest {
     @DisplayName("Return true if is empty on new stack")
     @Test
     public void isEmptyTrueOnNewStack() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
 
         assertTrue(stack.isEmpty());
     }
@@ -47,7 +47,7 @@ public class ArrayStackTest {
     @DisplayName("Return false if stack with date")
     @Test
     public void isEmptyFalseOnNewStack() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
 
         assertFalse(stack.isEmpty());
@@ -56,7 +56,7 @@ public class ArrayStackTest {
     @DisplayName("Return true if stack is empty after clear")
     @Test
     public void isEmptyTrueAfterClear() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
         stack.push("B");
 
@@ -68,7 +68,7 @@ public class ArrayStackTest {
     @DisplayName("Return true if stack is empty after clear")
     @Test
     public void isEmptyFalseAfterClear() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
         stack.push("B");
 
@@ -78,7 +78,7 @@ public class ArrayStackTest {
     @DisplayName("Contains return true")
     @Test
     public void ContainsReturnTrue() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
         stack.push("A");
         stack.push("B");
 
@@ -88,7 +88,7 @@ public class ArrayStackTest {
     @DisplayName("Contains return false on empty stack")
     @Test
     public void ContainsReturnFalse() {
-        ArrayStack stack = new ArrayStack();
+        ArrayStack<Object> stack = new ArrayStack<>();
 
         assertFalse(stack.contains("C"));
     }
